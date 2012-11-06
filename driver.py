@@ -25,22 +25,46 @@ def get_http_status(host, path="/"):
     
 def set_light_red():
     # change GPIO status to set the traffic light to red
+    print "Build Failed                             {RED}"
     return
     
 def set_light_yellow():
     # change GPIO status to set the traffic light to yellow
+    print "Build Succeeded - Unit Tests Failed      {YELLOW}"
     return
     
 def set_light_green():
     # change GPIO status to set the traffic light to green
+    print "Build Succeeded - Unit Tests Passed      {GREEN}"
     return
+
+def set_light_error():
+    # error with the HTTP fetch request
+    print "ERROR				    {ERR}"
 
 # loops for a given time increment and updates
 # GPIO relays appropriately (in progress)
 def main():
     url = raw_input("Please enter a url: ")
     while True:
-        print get_http_status(url)
+        status = get_http_status(url)
+	
+	# All Good Status - HTTP 200
+	if status == 200:
+	    set_light_green()
+
+	# Unit Test Failure Status - HTTP 412
+	elif status == 412:
+	    set_light_yellow()
+
+	# Build Failure Status - HTTP 409
+	elif status == 409:
+	    set_light_red()
+
+	# Error Status - Null response
+	else:
+	    set_light_error()
+
         time.sleep(10)
     return
     
