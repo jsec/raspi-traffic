@@ -38,8 +38,9 @@ def set_light_green():
 # loops for a given time increment and updates
 # GPIO relays appropriately (in progress)
 def main():
+    url = raw_input("Please enter a url: ")
     while True:
-        print get_http_status("jsec.me")
+        print get_http_status(url)
         time.sleep(10)
     return
     
