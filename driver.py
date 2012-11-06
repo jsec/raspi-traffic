@@ -22,6 +22,18 @@ def get_http_status(host, path="/"):
         return conn.getresponse().status
     except StandardError:
         return None
+    
+def set_light_red():
+    # change GPIO status to set the traffic light to red
+    return
+    
+def set_light_yellow():
+    # change GPIO status to set the traffic light to yellow
+    return
+    
+def set_light_green():
+    # change GPIO status to set the traffic light to green
+    return
 
 # loops for a given time increment and updates
 # GPIO relays appropriately (in progress)
