@@ -10,6 +10,15 @@
 #               current build status.                            #
 ##################################################################
 
+# HTTP Response Codes Used:
+#	200 OK 			- Signifies a successful build and unit tess passing.
+#	412 Precondition Failed - Signifies successful build, failed unit tests.
+#	409 Conflict		- Signifies a failed build
+#
+#	The link to the TeamCity plugin used can be found in the README.
+#	This code is in the public domain.
+
+
 # library imports
 import time;
 import httplib;
