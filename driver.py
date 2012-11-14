@@ -50,6 +50,7 @@ def set_light_green():
 def set_light_error():
     # error with the HTTP fetch request
     print "ERROR				    {ERR}"
+    return
 
 # loops for a given time increment and updates
 # GPIO relays appropriately (in progress)
